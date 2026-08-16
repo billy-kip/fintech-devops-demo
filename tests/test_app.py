@@ -31,3 +31,14 @@ def test_transaction():
 
     assert response.status_code == 200
     assert response.json["status"] == "successful"
+
+
+def test_api_info():
+    client = app.test_client()
+
+    response = client.get("/api-info")
+
+    assert response.status_code == 200
+    assert response.json["service"] == "Fintech Demo API"
+    assert response.json["version"] == "1.0"
+    assert response.json["environment"] == "development"
