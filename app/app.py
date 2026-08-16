@@ -26,5 +26,14 @@ def transaction():
     })
 
 
+@app.route("/api-info")
+def api_info():
+    return jsonify({
+        "service": "Fintech Demo API",
+        "version": "1.0",
+        "environment": "development"
+    })
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
